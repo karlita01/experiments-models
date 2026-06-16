@@ -7,3 +7,10 @@ En este experimento se realizó una primera prueba para clasificar imágenes com
 ## Experimento 2: Clasificación con recortes de personas y dataset balanceado
 
 En este segundo experimento se mejoró el enfoque anterior recortando primero a las personas detectadas en cada frame mediante **YOLOv8**. Con estos recortes se creó un nuevo dataset centrado en la persona, reduciendo parte del ruido visual del fondo. Después, se balancearon las clases **normal** y **robo** para tener una cantidad similar de imágenes, y se entrenó nuevamente un modelo **YOLOv8** de clasificación. Finalmente, se realizaron pruebas tanto en imágenes como en video, clasificando cada frame como **normal** o **posible robo**.
+
+## Experimento 3: Detección de posible robo con YOLOv8 Detect
+
+En este experimento se entrenó un modelo YOLOv8 en modo detección utilizando un dataset local anotado mediante el archivo `data.yaml`. A diferencia de los experimentos anteriores, donde el modelo clasificaba una imagen completa como normal o robo, en este caso se utilizó YOLOv8 para detectar visualmente la posible acción o zona asociada al robo dentro de una imagen o video.
+
+Para el entrenamiento se utilizó el modelo base `yolov8m.pt`, configurado con 30 épocas, tamaño de imagen de 640, batch de 8 y paciencia de 10. Luego, el modelo entrenado fue probado en imágenes y videos, mostrando las detecciones realizadas con sus respectivas cajas y niveles de confianza. Este experimento permitió evaluar un enfoque basado en detección directa, aunque su rendimiento depende bastante de la calidad de las anotaciones y del dataset usado para entrenar.
+
