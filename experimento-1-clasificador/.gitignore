@@ -1,0 +1,12 @@
+*.mp4
+*.jpg
+*.jpeg
+
+*.pt
+
+
+frames_dataset/
+frames_dataset_spli/
+normal/
+robo/
+runs/
