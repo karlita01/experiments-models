@@ -14,3 +14,8 @@ En este experimento se entrenó un modelo YOLOv8 en modo detección utilizando u
 
 Para el entrenamiento se utilizó el modelo base `yolov8m.pt`, configurado con 30 épocas, tamaño de imagen de 640, batch de 8 y paciencia de 10. Luego, el modelo entrenado fue probado en imágenes y videos, mostrando las detecciones realizadas con sus respectivas cajas y niveles de confianza. Este experimento permitió evaluar un enfoque basado en detección directa, aunque su rendimiento depende bastante de la calidad de las anotaciones y del dataset usado para entrenar.
 
+## Experimento 4: Detección de robo con YOLOv8s y análisis Grad-CAM
+
+En este experimento se entrenó un modelo YOLOv8s en modo detección utilizando un dataset anotado con dos clases: normal y robo. A diferencia de los primeros experimentos basados solo en clasificación, aquí el modelo aprende a detectar visualmente las regiones asociadas a cada clase mediante cajas delimitadoras. Además, se realizó una validación del entrenamiento revisando métricas como pérdidas, precisión y mAP, y se probó el modelo entrenado sobre imágenes y videos.
+
+Como complemento, se aplicó Grad-CAM al modelo entrenado para visualizar qué zonas de la imagen influyen más en la predicción de la clase robo. Esto permitió agregar una parte de interpretabilidad al experimento, ya que no solo se observa la detección final del modelo, sino también las regiones visuales que activan su decisión.
