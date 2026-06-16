@@ -1,0 +1,11 @@
+*.mp4
+*.jpg
+*.jpeg
+
+
+*.pt
+
+
+detection-1/
+runs/
+venv/
