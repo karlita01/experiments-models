@@ -19,3 +19,9 @@ Para el entrenamiento se utilizó el modelo base `yolov8m.pt`, configurado con 3
 En este experimento se entrenó un modelo YOLOv8s en modo detección utilizando un dataset anotado con dos clases: normal y robo. A diferencia de los primeros experimentos basados solo en clasificación, aquí el modelo aprende a detectar visualmente las regiones asociadas a cada clase mediante cajas delimitadoras. Además, se realizó una validación del entrenamiento revisando métricas como pérdidas, precisión y mAP, y se probó el modelo entrenado sobre imágenes y videos.
 
 Como complemento, se aplicó Grad-CAM al modelo entrenado para visualizar qué zonas de la imagen influyen más en la predicción de la clase robo. Esto permitió agregar una parte de interpretabilidad al experimento, ya que no solo se observa la detección final del modelo, sino también las regiones visuales que activan su decisión.
+
+## Experimento 5: Análisis visual de escenas con YOLOv11 y reglas simples
+
+En este experimento se utilizó un modelo YOLOv11 preentrenado para analizar imágenes del dataset y detectar objetos presentes en escenas normales y de robo. Primero se revisó la distribución del dataset y se visualizaron muestras por clase. Luego, se realizaron predicciones con diferentes umbrales de confianza para observar qué objetos detectaba el modelo en cada imagen.
+
+Además, se implementó una clasificación simple basada en reglas visuales, considerando la presencia de personas y objetos como mochilas, bolsos o maletas para asignar un puntaje de posible actividad sospechosa o actividad normal. Este experimento permitió explorar si los objetos detectados en la escena podían servir como señales iniciales para identificar comportamientos sospechosos, aunque sin entrenar un modelo específico para robo.
