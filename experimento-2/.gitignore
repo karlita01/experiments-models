@@ -1,0 +1,12 @@
+*.mp4
+*.jpg
+*.jpeg
+
+*.pt
+
+
+dataset_personas/
+dataset_personas_balanceado/
+dataset_personas_balanceado_split/
+frames_dataset/
+runs/
