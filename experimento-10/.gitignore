@@ -1,0 +1,11 @@
+*.mp4
+*.jpg
+*.jpeg
+
+*.pt
+*.pkl
+*,json
+
+*.txt
+
+dataset_videos/
