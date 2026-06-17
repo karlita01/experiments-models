@@ -51,3 +51,9 @@ También se incluye un script de inferencia que permite probar el modelo entrena
 En este experimento se realizó una prueba de entrenamiento con YOLOv8 para detectar las clases normal y robo usando un dataset en formato YOLO. Primero se verificó la estructura del dataset, la disponibilidad de GPU y se ejecutó un entrenamiento inicial corto con YOLOv8n para comprobar que el entorno funcionaba correctamente.
 
 Luego, se entrenó una versión con YOLOv8s y se revisaron los archivos de etiquetas del dataset. Durante esta revisión se identificó que algunos labels no estaban en formato de detección con caja, sino que tenían más coordenadas, similares a segmentación o polígonos. Por ello, se creó una versión limpia del dataset convirtiendo esos polígonos a bounding boxes compatibles con YOLO Detect. Finalmente, se volvió a entrenar YOLOv8s usando el dataset corregido y se validó el modelo sobre el conjunto de prueba.
+
+## Experimento 11: Clasificación temporal de videos con YOLOv8 Pose, SVM y XGBoost
+
+En este experimento se trabajó directamente con videos completos de las clases normal y robo. Primero, se analizaron los videos del dataset para revisar la cantidad de archivos y sus duraciones. Luego, se extrajeron frames distribuidos uniformemente de cada video y se utilizó YOLOv8 Pose para obtener los keypoints corporales de la persona principal.
+
+A partir de la secuencia de keypoints se generaron características temporales, como la postura promedio, variación de movimientos, movimiento entre frames y distancias de las muñecas respecto al torso. Estas características fueron guardadas en un CSV y utilizadas para entrenar modelos SVM y XGBoost. Finalmente, se implementó una prueba de inferencia sobre un video completo, donde el sistema selecciona la persona principal, acumula sus keypoints y realiza una predicción final indicando si el video corresponde a actividad normal o posible robo.
