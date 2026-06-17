@@ -1,0 +1,13 @@
+*.mp4
+*.jpg
+*.jpeg
+
+*.csv
+
+*.pt
+*.pkl
+
+
+EXP6/
+dataset/
+
