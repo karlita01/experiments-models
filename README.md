@@ -33,3 +33,9 @@ En este experimento se utilizó YOLOv8 Pose para detectar los puntos corporales 
 ## Mejora del Experimento 6: YOLOv8 Pose con XGBoost y ByteTrack
 
 En esta mejora se reemplazó el clasificador SVM por un modelo XGBoost y se incorporó seguimiento de personas mediante ByteTrack. Esto permitió asignar un identificador a cada persona detectada y mantener un historial de predicciones por individuo. De esta manera, la clasificación se volvió más estable, ya que el sistema no analiza solo un frame aislado, sino el comportamiento reciente de cada persona durante el video.
+
+## Experimento 7: Mejora del modelo YOLOv8s con aumento de datos y entrenamiento optimizado
+
+En este experimento se mejoró el entrenamiento del modelo de detección utilizando YOLOv8s y un dataset con las clases normal y robo. Primero se revisó el balance de clases del dataset y luego se aplicó aumento de datos sobre la clase robo, generando variaciones con cambios de brillo, contraste, ruido, rotación y volteo horizontal. Esto permitió aumentar la cantidad de ejemplos de la clase robo y reducir el desbalance del dataset.
+
+Después, se entrenó una nueva versión del modelo con una configuración más completa, usando 100 épocas, optimizador AdamW, augmentación interna de YOLO, entrenamiento con GPU y guardado de métricas. Finalmente, se realizaron pruebas en imágenes y videos, incluyendo una versión donde se detectan personas, se les asigna un ID mediante tracking y se clasifica cada recorte como normal o robo.
