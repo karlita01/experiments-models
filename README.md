@@ -39,3 +39,10 @@ En esta mejora se reemplazó el clasificador SVM por un modelo XGBoost y se inco
 En este experimento se mejoró el entrenamiento del modelo de detección utilizando YOLOv8s y un dataset con las clases normal y robo. Primero se revisó el balance de clases del dataset y luego se aplicó aumento de datos sobre la clase robo, generando variaciones con cambios de brillo, contraste, ruido, rotación y volteo horizontal. Esto permitió aumentar la cantidad de ejemplos de la clase robo y reducir el desbalance del dataset.
 
 Después, se entrenó una nueva versión del modelo con una configuración más completa, usando 100 épocas, optimizador AdamW, augmentación interna de YOLO, entrenamiento con GPU y guardado de métricas. Finalmente, se realizaron pruebas en imágenes y videos, incluyendo una versión donde se detectan personas, se les asigna un ID mediante tracking y se clasifica cada recorte como normal o robo.
+
+# Experimento 8: YOLOv8 Pose + XGBoost
+
+Este experimento implementa un flujo para detectar actividad normal o sospechosa usando YOLOv8 Pose y XGBoost. Primero, se extraen los keypoints corporales de las personas presentes en el dataset y se guardan en un archivo CSV. Luego, estos puntos se usan como características para entrenar un clasificador XGBoost capaz de diferenciar entre actividad normal y actividad sospechosa.
+
+También se incluye un script de inferencia que permite probar el modelo entrenado en imágenes, videos o cámara en vivo. El sistema detecta personas, obtiene sus keypoints, clasifica cada detección como normal o sospechosa y dibuja el resultado en pantalla con su respectiva etiqueta y nivel de confianza.
+
