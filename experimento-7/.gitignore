@@ -1,0 +1,11 @@
+*.mp4
+*.jpg
+*.jpeg
+
+
+*.pt
+
+
+dataset/
+EXP7/
+runs/
