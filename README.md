@@ -46,3 +46,8 @@ Este experimento implementa un flujo para detectar actividad normal o sospechosa
 
 También se incluye un script de inferencia que permite probar el modelo entrenado en imágenes, videos o cámara en vivo. El sistema detecta personas, obtiene sus keypoints, clasifica cada detección como normal o sospechosa y dibuja el resultado en pantalla con su respectiva etiqueta y nivel de confianza.
 
+## Experimento 9: Limpieza de etiquetas y entrenamiento YOLOv8 Detect
+
+En este experimento se realizó una prueba de entrenamiento con YOLOv8 para detectar las clases normal y robo usando un dataset en formato YOLO. Primero se verificó la estructura del dataset, la disponibilidad de GPU y se ejecutó un entrenamiento inicial corto con YOLOv8n para comprobar que el entorno funcionaba correctamente.
+
+Luego, se entrenó una versión con YOLOv8s y se revisaron los archivos de etiquetas del dataset. Durante esta revisión se identificó que algunos labels no estaban en formato de detección con caja, sino que tenían más coordenadas, similares a segmentación o polígonos. Por ello, se creó una versión limpia del dataset convirtiendo esos polígonos a bounding boxes compatibles con YOLO Detect. Finalmente, se volvió a entrenar YOLOv8s usando el dataset corregido y se validó el modelo sobre el conjunto de prueba.
