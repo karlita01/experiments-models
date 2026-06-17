@@ -25,3 +25,11 @@ Como complemento, se aplicó Grad-CAM al modelo entrenado para visualizar qué z
 En este experimento se utilizó un modelo YOLOv11 preentrenado para analizar imágenes del dataset y detectar objetos presentes en escenas normales y de robo. Primero se revisó la distribución del dataset y se visualizaron muestras por clase. Luego, se realizaron predicciones con diferentes umbrales de confianza para observar qué objetos detectaba el modelo en cada imagen.
 
 Además, se implementó una clasificación simple basada en reglas visuales, considerando la presencia de personas y objetos como mochilas, bolsos o maletas para asignar un puntaje de posible actividad sospechosa o actividad normal. Este experimento permitió explorar si los objetos detectados en la escena podían servir como señales iniciales para identificar comportamientos sospechosos, aunque sin entrenar un modelo específico para robo.
+
+## Experimento 6: Clasificación con YOLOv8 Pose y SVM
+
+En este experimento se utilizó YOLOv8 Pose para detectar los puntos corporales de las personas en video. A partir de estos keypoints se generaron características normalizadas, como posiciones relativas del cuerpo y distancias entre articulaciones. Luego, estas características fueron evaluadas con un clasificador SVM para diferenciar entre una actividad normal y una posible situación de robo. Además, se aplicó un pequeño historial de predicciones para evitar que una sola detección aislada cambie directamente el resultado final.
+
+## Mejora del Experimento 6: YOLOv8 Pose con XGBoost y ByteTrack
+
+En esta mejora se reemplazó el clasificador SVM por un modelo XGBoost y se incorporó seguimiento de personas mediante ByteTrack. Esto permitió asignar un identificador a cada persona detectada y mantener un historial de predicciones por individuo. De esta manera, la clasificación se volvió más estable, ya que el sistema no analiza solo un frame aislado, sino el comportamiento reciente de cada persona durante el video.
