@@ -57,3 +57,9 @@ Luego, se entrenó una versión con YOLOv8s y se revisaron los archivos de etiqu
 En este experimento se trabajó directamente con videos completos de las clases normal y robo. Primero, se analizaron los videos del dataset para revisar la cantidad de archivos y sus duraciones. Luego, se extrajeron frames distribuidos uniformemente de cada video y se utilizó YOLOv8 Pose para obtener los keypoints corporales de la persona principal.
 
 A partir de la secuencia de keypoints se generaron características temporales, como la postura promedio, variación de movimientos, movimiento entre frames y distancias de las muñecas respecto al torso. Estas características fueron guardadas en un CSV y utilizadas para entrenar modelos SVM y XGBoost. Finalmente, se implementó una prueba de inferencia sobre un video completo, donde el sistema selecciona la persona principal, acumula sus keypoints y realiza una predicción final indicando si el video corresponde a actividad normal o posible robo.
+
+## Experimento de detección de actividad sospechosa con YOLOv8 Pose y zonas de estantes
+
+En este experimento se implementó una detección de actividad sospechosa usando YOLOv8 Pose, seguimiento con ByteTrack y reglas basadas en keypoints corporales. El sistema permite dibujar zonas de estantes sobre el video, guardar o cargar dichas zonas, y analizar si una persona se encuentra cerca del estante, introduce la mano en la zona marcada o realiza movimientos hacia el torso que puedan considerarse sospechosos.
+
+Además, el sistema mantiene un seguimiento por persona mediante ID y acumula un puntaje según las acciones detectadas, como cercanía al estante, mano dentro de la zona, movimiento de mano hacia el torso, inclinación corporal o repetición del patrón. Según ese puntaje, cada persona se clasifica visualmente como normal, en observación o posible sospecha, mostrando los resultados directamente sobre el video procesado.
