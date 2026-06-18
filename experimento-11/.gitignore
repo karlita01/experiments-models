@@ -1,0 +1,14 @@
+*.mp4
+*.jpg
+*.jpeg
+
+*.pt
+*.pkl
+*.json
+
+*.txt
+
+dataset_personas/
+dataset1/
+dataset2/
+modelo_guardado/
