@@ -40,7 +40,7 @@ En este experimento se mejoró el entrenamiento del modelo de detección utiliza
 
 Después, se entrenó una nueva versión del modelo con una configuración más completa, usando 100 épocas, optimizador AdamW, augmentación interna de YOLO, entrenamiento con GPU y guardado de métricas. Finalmente, se realizaron pruebas en imágenes y videos, incluyendo una versión donde se detectan personas, se les asigna un ID mediante tracking y se clasifica cada recorte como normal o robo.
 
-# Experimento 8: YOLOv8 Pose + XGBoost
+## Experimento 8: YOLOv8 Pose + XGBoost
 
 Este experimento implementa un flujo para detectar actividad normal o sospechosa usando YOLOv8 Pose y XGBoost. Primero, se extraen los keypoints corporales de las personas presentes en el dataset y se guardan en un archivo CSV. Luego, estos puntos se usan como características para entrenar un clasificador XGBoost capaz de diferenciar entre actividad normal y actividad sospechosa.
 
@@ -63,3 +63,9 @@ A partir de la secuencia de keypoints se generaron características temporales, 
 En este experimento se implementó una detección de actividad sospechosa usando YOLOv8 Pose, seguimiento con ByteTrack y reglas basadas en keypoints corporales. El sistema permite dibujar zonas de estantes sobre el video, guardar o cargar dichas zonas, y analizar si una persona se encuentra cerca del estante, introduce la mano en la zona marcada o realiza movimientos hacia el torso que puedan considerarse sospechosos.
 
 Además, el sistema mantiene un seguimiento por persona mediante ID y acumula un puntaje según las acciones detectadas, como cercanía al estante, mano dentro de la zona, movimiento de mano hacia el torso, inclinación corporal o repetición del patrón. Según ese puntaje, cada persona se clasifica visualmente como normal, en observación o posible sospecha, mostrando los resultados directamente sobre el video procesado.
+
+# Experimento 11: Detección de shoplifting con VideoMAE
+
+En este experimento se trabajó con un modelo VideoMAE para clasificar videos como actividad normal o shoplifting. Primero se realizó el entrenamiento del modelo usando videos organizados en las clases normal y shoplifting, tomando 16 frames por video y separando el dataset en entrenamiento, validación y prueba.
+
+Además, se implementaron dos formas de predicción. La primera analiza el video por ventanas de tiempo para identificar en qué parte aparece una posible actividad sospechosa. La segunda combina YOLOv8 Tracking con VideoMAE, recortando a cada persona detectada, acumulando sus frames por ID y clasificando su comportamiento cuando existe suficiente información temporal.
