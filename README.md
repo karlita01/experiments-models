@@ -10,9 +10,9 @@ En este segundo experimento se mejoró el enfoque anterior recortando primero a 
 
 ## Experimento 3: Detección de posible robo con YOLOv8 Detect
 
-En este experimento se entrenó un modelo YOLOv8 en modo detección utilizando un dataset local anotado mediante el archivo `data.yaml`. A diferencia de los experimentos anteriores, donde el modelo clasificaba una imagen completa como normal o robo, en este caso se utilizó YOLOv8 para detectar visualmente la posible acción o zona asociada al robo dentro de una imagen o video.
+En este experimento se entrenó un modelo YOLOv8 en modo detección utilizando un dataset local anotado mediante el archivo **data.yaml**. A diferencia de los experimentos anteriores, donde el modelo clasificaba una imagen completa como normal o robo, en este caso se utilizó YOLOv8 para detectar visualmente la posible acción o zona asociada al robo dentro de una imagen o video.
 
-Para el entrenamiento se utilizó el modelo base `yolov8m.pt`, configurado con 30 épocas, tamaño de imagen de 640, batch de 8 y paciencia de 10. Luego, el modelo entrenado fue probado en imágenes y videos, mostrando las detecciones realizadas con sus respectivas cajas y niveles de confianza. Este experimento permitió evaluar un enfoque basado en detección directa, aunque su rendimiento depende bastante de la calidad de las anotaciones y del dataset usado para entrenar.
+Para el entrenamiento se utilizó el modelo base **yolov8m.pt**, configurado con 30 épocas, tamaño de imagen de 640, batch de 8 y paciencia de 10. Luego, el modelo entrenado fue probado en imágenes y videos, mostrando las detecciones realizadas con sus respectivas cajas y niveles de confianza. Este experimento permitió evaluar un enfoque basado en detección directa, aunque su rendimiento depende bastante de la calidad de las anotaciones y del dataset usado para entrenar.
 
 ## Experimento 4: Detección de robo con YOLOv8s y análisis Grad-CAM
 
